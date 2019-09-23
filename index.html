@@ -8,11 +8,11 @@
         function loadIMDB() {
             const div = document.getElementById('data');
 ​
-            for(let i = 0; i < imdb_list.length; i++) {
+            for(let i = 0; i < imdblist.length; i++) {
 ​
-                if(!(imdb_list[i] === "undefined")) {
+                if(!(imdblist[i] === "undefined")) {
 ​
-                    img = "<img class='tile' src='" + imdb_list[i] + "'>";
+                    img = "<img class='tile' src='" + imdblist[i] + "'>";
                     div.innerHTML = div.innerHTML + img;
 ​
                 }
