@@ -17,21 +17,21 @@ app.get('/wiki', function(req, res) {
     if (!error) {
       //res.send(html);
       var $ = cheerio.load(html);
-      var data={
-        articleTitle:'',
-        articleImg:'',
-        articlePara:''
+      var data = {
+        articleTitle: '',
+        articleImg: '',
+        articlePara: ''
       };
-      $('#content').filter(function(){
-        data.articleTitle=$(this).find('#firstHeading').text();
-        data.articleImg=$(this).find('img').first().attr('src');
-        data.articlePara=$(this).find('p:nth-of-type(6)').text();
+      $('#content').filter(function() {
+        data.articleTitle = $(this).find('#firstHeading').text();
+        data.articleImg = $(this).find('img').first().attr('src');
+        data.articlePara = $(this).find('p:nth-of-type(6)').text();
       });
       res.send(data);
 
-    fs.writeFile('wiki-output.js', JSON.stringify(data, null, 4), function(error){
-      console.log('File written on hard drive');
-    });
+      fs.writeFile('wiki-output.js', JSON.stringify(data, null, 4), function(error) {
+        console.log('File written on hard drive');
+      });
     }
   });
 
@@ -45,18 +45,18 @@ app.get('/imdb', function(req, res) {
     if (!error) {
       //res.send(html);
       var $ = cheerio.load(html);
-      var data=[];
-      $('.lister-list').filter(function(){
-    $(this).find('tr').each(function(i,elem){
-      data[i] = $(this).find('.posterColumn').find('img').attr('src');
-    });
+      var data = [];
+      $('.lister-list').filter(function() {
+        $(this).find('tr').each(function(i, elem) {
+          data[i] = "'" + $(this).find('.posterColumn').find('img').attr('src') + "'";
+        });
 
       });
       res.send(data);
 
-    fs.writeFile('imdb-output.js',data, function(error){
-      console.log('File written on hard drive');
-    });
+      fs.writeFile('imdb-output.js', 'var imdb list =[ ' + data + ']', function(error) {
+        console.log('File written on hard drive');
+      });
     }
   });
 
