@@ -1,0 +1,14 @@
+{
+    "name": "scraping101",
+    "version": "0.0.1",
+    "homepage": "https://github.com/Daniela510/insta_coding",
+    "description": "coding y3 pr1",
+    "author": "Daniela",
+    "main": "app.js",
+    "dependencies": {
+        "nodemon": "latest",
+        "express": "latest",
+        "request": "latest",
+        "cheerio": "latest"
+    }
+}
