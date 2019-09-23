@@ -1,4 +1,4 @@
-.ignore file:
+
 # dependencies
 node_modules
 _dist
