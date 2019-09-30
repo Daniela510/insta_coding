@@ -1,36 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-​
-    <script type="text/javascript" src="imdb-output.js"></script>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="data/instagram_output.js"></script>
+        <script type="text/javascript" >
+            function load() {
+                const div = document.getElementById('data');
 
-    <script type="text/javascript" >
-        function loadIMDB() {
-            const div = document.getElementById('data');
-​
-            for(let i = 0; i < imdb_list.length; i++) {
-​
-                if(!(imdb_list[i] === "undefined")) {
-​
-                    img = "<img class='tile' src='" + imdb_list[i] + "'>";
+                for(let i = 0; i < instagram_output.graphql.hashtag.edge_hashtag_to_media.edges.length; i++) {
+                    img = "<img class='tile' src='"+instagram_output.graphql.hashtag.edge_hashtag_to_media.edges[i].node.display_url+"'>";
                     div.innerHTML = div.innerHTML + img;
-​
                 }
-​
             }
-​
-        }
-    </script>
-    <style>
-        img {
-            height: 100px;
-            width: 65px;
-            margin: 5px;
-        }
-    </style>
-​
-</head>
-<body onload="loadIMDB()">
-<div id="data"></div>
-</body>
+        </script>
+        <style>
+            #data {
+                display: flex;
+                height: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .tile {
+                max-width: 320px;
+                max-height: 320px;
+                margin: 10px;
+            }
+        </style>
+
+    </head>
+    <body onload="load()">
+        <div id="data"></div>
+    </body>
 </html>

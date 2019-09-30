@@ -62,6 +62,36 @@ app.get('/imdb', function(req, res) {
 
 });
 
+app.get('/instagram', function(req, res){
+
+  // try any hashtags and see the results, make sure to write INSIDE the quotation marks
+  var hashtag = 'aesthetic';
+  var url = 'https://instagram.com/explore/tags/'+ hashtag +'/?__a=1';
+
+  // let's make the http request to the url above using the 'request' dependency
+  request(url, function(error, response, html) {
+
+    // only execute if there's no error
+    if(!error) {
+
+      // we can use the dependency 'cheerio' to traverse the DOM and use jQuery-like selectors and functions
+      var $ = cheerio.load(html);
+
+      // the url actually gives back already a ready to use JSON object so we just want that raw text
+      var instagram_data = $.text();
+
+      // send the data we've stored in our array back to the browser
+      res.send(instagram_data);
+
+      // save the data we've stored in our object on our machine
+      fs.writeFile('insta.js', 'var instagram_output = ' + instagram_data, function(err){
+        console.log('File is written successfully!');
+      });
+
+    }
+  });
+});
+
 app.listen(port);
 console.log('Magic happens on port ' + port);
 exports = module.exports = app;
