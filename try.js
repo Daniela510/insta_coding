@@ -15,7 +15,7 @@ for(let i = 0; i < 3; i++) {
 }
 }
 function setup() {
-  cnv = createCanvas(700, 700);
+  cnv = createCanvas(600, 600);
   centerCanvas();
     noStroke();
   imageMode(CORNER);
