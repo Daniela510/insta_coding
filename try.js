@@ -1,5 +1,6 @@
 var cnv;
 var bi=[];
+var biDraw = [];
 let scnv;
 
 function centerCanvas() {
@@ -12,6 +13,7 @@ function preload() {
 const div = document.getElementById('data');
 for(let i = 0; i < 50; i++) {
     bi[i]= loadImage(instagram_output.graphql.hashtag.edge_hashtag_to_media.edges[i].node.display_url);
+    // instagram_output.graphql.hashtag.edge_hashtag_to_media.edges[i].node.edge_media_to_caption.edges[0].node.text
 }
 }
 
@@ -20,10 +22,12 @@ function setup() {
   //centerCanvas();
     noStroke();
     //randomize
-    var one = floor(random(0,50));var two = floor(random(0,50));var thr = floor(random(0,50));
-
-  imageMode(CORNER);  background(bi[two]);tint(255, 127);
-  image(bi[thr], 0, 0); image(bi[one], 0, 0);
+    biDraw[0] = floor(random(0,50));
+    biDraw[1] = floor(random(0,50));
+    biDraw[2] = floor(random(0,50));
+  imageMode(CORNER);
+//  background(bi[two]);tint(255, 127); image(bi[thr], 0, 0); image(bi[one], 0, 0);
+ //background(bi[2]);tint(255, 127); image(bi[1], 0, 0); image(bi[0], 0, 0);
 for (var i=0; i<100; i++){
   pixels.push(new pixel());
 }
@@ -47,9 +51,9 @@ function pixel(){
     this.x= constrain(this.x,0,width);
     this.y += dy;
     this.y = constrain(this.y,0,height);
-    let variables = [one, two, thr];
-var r = (random(variables)); //selecting the image from witch to pull pxels
-    var color = bi[r].get(this.x, this.y); // color of pixel in image
+    // let variables = [one, two, thr]; var r = floor(random(variables));
+var r = floor(random(0,3)); //selecting the image from witch to pull pxels
+    var color = bi[biDraw[r]].get(this.x, this.y); // color of pixel in image
     fill(color);
 
     ellipse(this.x, this.y, 3, 3);
