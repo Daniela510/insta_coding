@@ -5,100 +5,135 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>no git hub</title>
-      <style> body {padding: 0; margin: 0;  height: 100%; overflow-y:hidden;;  background-color: black;} </style>
+      <style> body {padding: 0; margin: 0;  height: 100%; overflow-y:hidden;;  background-color:black;} </style>
       <script src="p5.js"></script>
       <script src="p5.dom.js"></script>
+      <script type="text/javascript" >
+          function load() {
+    var r = floor(random(0,40)); if (r<4){
+      const div = document.getElementById('data');    for(let i = 0; i < r; i++) {
+          p ="<p>"+instagram_output.graphql.hashtag.edge_hashtag_to_media.edges[i].node.edge_media_to_caption.edges[0].node.text+"</p>";
+          div.innerHTML = div.innerHTML + p;
+      }} else{
+        const div = document.getElementById('data');    for(let mi=(r-3);mi < r; mi++) {
+            p ="<p>"+instagram_output.graphql.hashtag.edge_hashtag_to_media.edges[mi].node.edge_media_to_caption.edges[0].node.text+"</p>";
+            div.innerHTML = div.innerHTML + p;}
+       }
+    }
+      </script>
       <script src="try.js"></script>
 
         <script type="text/javascript" src="insta.js"></script>
         <style>
-        .wrapper {
-          position: absolute;
+        .prev2 {
+position: absolute;
         height:100vh;
-        width:100vh;
-          background-color: black;
-          margin-left: 100vh;
-          transform: rotate(-90deg);
-transform-origin: right top;
+        width:16vh;
+        margin: 0px;}
+        .prev {
+    position:absolute;
+        height:100vh;
+        width:35vw;
+        margin-left: 63vw;
+      margin-top: 40vh;}
 
-        }.prev2 {
-        display: inline-block;
-          width: 100vh;
-        height:100vh;
-        margin: 0px;
-          transform: rotate(90deg);
-transform-origin: right top;
-        }
         img {
-          width: 100vh;
-        height:100vh;
+        width:100%;
+        height: 100%;
           object-fit: contain;
-        }
-        p{
-          position: absolute;
-          color: white;
-          font-family: "Lucida Console";
-          font-style: light;
-          font-size: 30px;
-        width: 55vh;
-          margin-top: 0px;}
+        }  p{
+            position: absolute;
+            color: white;
+            font-family: "Lucida Console";
+      font-size: 30px;
+      margin-left: 63vw;
+      margin-top: 4vh;
+
+          }
+          #data {
+              display: flex;
+              height: 100%;
+              flex-direction: row;
+              flex-wrap: wrap;
+          }
+          #four{
+            position:absolute;
+                height:10vh;
+                width:12vw;
+                margin-left: 63vw;
+              margin-top: 90vh;
+          }
+          #five{
+            position:absolute;
+                height:10vh;
+                width:12vw;
+                margin-left: 75vw;
+              margin-top: 90vh;
+          }
+          #six{
+            position:absolute;
+                height:10vh;
+                width:12vw;
+                margin-left: 87vw;
+              margin-top: 90vh;
+          }
+          #one{
+            position:absolute;
+                height:10vh;
+                width:12vw;
+                margin-left: 63vw;
+              margin-top: 80vh;
+          }
+          #two{
+            position:absolute;
+                height:10vh;
+                width:12vw;
+                margin-left: 75vw;
+              margin-top: 80vh;
+          }
+          #three{
+            position:absolute;
+                height:10vh;
+                width:12vw;
+                margin-left: 87vw;
+              margin-top: 80vh;
+          }
 </style>
     </head>
-    <body>
-<div class='wrapper'>
-  <div class='prev2'>
-     <img src="data/myCanvas 3.jpg" alt="">
+    <body onload="load()">
+
+      <div id="data"></div>
+    <div class='prev2'>
+       <img src="data/aes.png" alt="">
+   </div>
+
+
+   <div class='prev'>
+      <img src="data/weeks.png" alt="">
+  </div>
+ <a href="GAL.HTML">
+   <div id="one">
  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 2.jpg" alt="">
-  </div>
-  <div class='prev2'>
-
-         <img src="data/myCanvas 1.jpg" alt="">
-  </div>
-  <div class='prev2'>
-     <img src="data/myCanvas 4.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 5.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 6.jpg" alt="">
-  </div>
-  <div class='prev2'>
-     <img src="data/myCanvas 7.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 8.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 9.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 10.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 11.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 12.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 13.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 14.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 15.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 16.jpg" alt="">
-  </div>
-  <div class='prev2'>
-         <img src="data/myCanvas 17.jpg" alt="">
-  </div>
+</a>
+<a href="GAL2.HTML">
+  <div id="two">
 </div>
-
+</a>
+<a href="GAL3.HTML">
+  <div id="three">
+</div>
+</a>
+<a href="GAL4.HTML">
+  <div id="four">
+</div>
+</a>
+<a href="GAL5.HTML">
+  <div id="five">
+</div>
+</a>
+<a href="GAL6.HTML">
+  <div id="six">
+</div>
+</a>
     </body>
 </html>

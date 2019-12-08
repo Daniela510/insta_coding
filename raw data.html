@@ -9,8 +9,9 @@
 
                 for(let i = 0; i < instagram_output.graphql.hashtag.edge_hashtag_to_media.edges.length; i++) {
                     img = "<img class='tile' src='"+instagram_output.graphql.hashtag.edge_hashtag_to_media.edges[i].node.display_url+"'>";
-                    div.innerHTML = div.innerHTML + img;
                     p ="<p>"+instagram_output.graphql.hashtag.edge_hashtag_to_media.edges[i].node.edge_media_to_caption.edges[0].node.text+"</p>";
+
+                    div.innerHTML = div.innerHTML + img + p;
                 }
 
 
@@ -32,8 +33,7 @@
         position: absolute;
         color: red;
         font-family: "Lucida Console";
-
-        font-size: 30px;
+  font-size: 30px;
 
       }
         </style>

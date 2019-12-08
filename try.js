@@ -4,9 +4,9 @@ var biDraw = [];
 let scnv;
 
 function centerCanvas() {
-  var x = (windowWidth - width) / 2;
+
   var y = (windowHeight - height) / 2;
-  cnv.position(x, y);
+  cnv.position(140, y);
 }
 
 function preload() {
@@ -18,8 +18,9 @@ for(let i = 0; i < 50; i++) {
 }
 
 function setup() {
-  cnv = createCanvas(windowHeight, windowHeight,0,0);
-  //centerCanvas();
+  var bla = (windowHeight - 60);
+  cnv = createCanvas(bla,bla,0,0);
+  centerCanvas();
     noStroke();
     //randomize
     biDraw[0] = floor(random(0,50));
@@ -59,12 +60,12 @@ var r = floor(random(0,3)); //selecting the image from witch to pull pxels
     ellipse(this.x, this.y, 3, 3);
   }
 }
-function mousePressed() {
-saveCanvas('myCanvas', 'jpg');
-  }
-// function windowResized() {
-//   centerCanvas();
-// }
+// function mousePressed() {
+// saveCanvas('myCanvas', 'jpg');
+//   }
+function windowResized() {
+  centerCanvas();
+}
 // if (mouseIsPressed) {
 //   fill(0);
 // } else {
